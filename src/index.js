@@ -1,14 +1,18 @@
-const express = require('express');
+import express from 'express'
+import { Sequelize } from 'sequelize';
+import 'babel-polyfill';
+import webpack from 'webpack'
+import webpackDevMiddleware from 'webpack-dev-middleware'
+import webpackHotMiddleware from 'webpack-hot-middleware'
+import config from '../webpack.config.js'
+
 const multer = require('multer');
 const multipart = multer();
 
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('../webpack.config.js');
+const sequelize = new Sequelize('postgres://mlreef:password@ec2-18-157-161-187.eu-central-1.compute.amazonaws.com:6000/mlreef_backend') // Example for postgres
 
 const app = express();
-const port = 8080;
+const port = 8001;
 
 const devServerEnabled = true;
 
@@ -45,6 +49,17 @@ app.post('/api/add', multipart.any(), function(req, res) {
   res.json({ sum: sum, firstValue: firstValue, secondValue: secondValue });
 
 });
+
+const connectDb = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+}
+
+connectDb();
 
 app.listen(port, () => {
   console.log('Server started on port:' + port);

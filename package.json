@@ -26,6 +26,7 @@
     "webpack-hot-middleware": "^2.25.0"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5"

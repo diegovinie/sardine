@@ -18,7 +18,7 @@ bootstrap(app);
 app.use(express.static('./public'));
 
 //API
-app.get('/api/projects', projects.listPopular);
+app.get('/api/projects', projects.listProjects);
 
 app.listen(port, () => {
   console.log('Server started on port:' + port);

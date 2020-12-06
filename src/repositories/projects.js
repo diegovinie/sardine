@@ -1,9 +1,15 @@
 import Project from '../models/Project';
 
 export default {
-  findPopular: () => Project.findAll({
+  findAll: ({ offset, limit }) => Project.findAndCountAll({
+    limit,
+    offset,
+  }),
+
+  findPopular: ({ offset, limit }) => Project.findAndCountAll({
     attributes: ['name', 'stars'],
-    limit: 5,
+    limit,
+    offset,
     order: [
       ['stars', 'DESC']
     ],

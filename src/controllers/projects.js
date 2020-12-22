@@ -39,4 +39,26 @@ export default {
 
     return res.json(paginate(req, projects));
   },
+
+  getProject: async (req, res) => {
+    const {
+      id,
+    } = req.params;
+
+    const project = await repo.findOne(id);
+
+    return res.json(project);
+  },
+
+  getProjectExperiments: async (req, res) => {
+    const {
+      id,
+    } = req.params;
+
+    const project = await repo.findOne(id);
+
+    const experiments = await project.getExperiments();
+
+    return res.json(experiments);
+  },
 };

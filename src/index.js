@@ -19,6 +19,8 @@ app.use(express.static('./public'));
 
 //API
 app.get('/api/projects', projects.listProjects);
+app.get('/api/projects/:id', projects.getProject);
+app.get('/api/projects/:id/experiments', projects.getProjectExperiments);
 
 app.listen(port, () => {
   console.log('Server started on port:' + port);

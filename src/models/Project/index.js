@@ -11,7 +11,9 @@ const options = {
 
 const Project = sequelize.define('Project', attributes, options);
 
-Project.hasMany(Experiment);
+Project.hasMany(Experiment, {
+  foreignKey: 'dataProjectId'
+});
 
 Experiment.belongsTo(Project, {
   foreignKey: 'dataProjectId'

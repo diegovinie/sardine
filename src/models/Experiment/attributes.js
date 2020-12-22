@@ -6,16 +6,28 @@ export default {
     allowNull: false,
   },
 
+
+  status: {
+    type: DataTypes.STRING,
+    field: 'status',
+  },
+
+  number: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    field: 'number',
+  },
+
   dataProjectId: {
     type: DataTypes.STRING,
     field: 'data_project_id',
   },
 
-  jsonBlob: {
-    type: DataTypes.STRING,
+  processorId: {
+    type: DataTypes.UUID,
     allowNull: true,
-    field: 'json_blob',
-  }
+    field: 'experiment_processing_id',
+  },
 };
 
 // id

@@ -1,4 +1,5 @@
 import Project from '../models/Project';
+import Experiment from '../models/Experiment';
 
 export default {
   findAll: ({ offset, limit }) => Project.findAndCountAll({
@@ -14,4 +15,9 @@ export default {
       ['stars', 'DESC']
     ],
   }),
+
+  findOne: (id) => Project.findByPk(id, { include: {
+    model: Experiment,
+    as: 'Experiments'
+  }}),
 };

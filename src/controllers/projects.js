@@ -57,7 +57,8 @@ export default {
 
     const project = await repo.findOne(id);
 
-    const experiments = await project.getExperiments();
+    const experiments = await project.getExperiments({ include: 'ProcessorInstance'});
+    // const experiments = await project.getExperiments();
 
     return res.json(experiments);
   },

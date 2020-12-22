@@ -1,4 +1,5 @@
 import attributes from './attributes';
+import ProcessorInstance from '../ProcessorInstance';
 import sequelize from '../../connection';
 
 const options = {
@@ -9,5 +10,9 @@ const options = {
 };
 
 const Experiment = sequelize.define('Experiment', attributes, options);
+
+Experiment.hasOne(ProcessorInstance);
+
+ProcessorInstance.belongsTo(Experiment);
 
 export default Experiment;

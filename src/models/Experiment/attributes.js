@@ -23,7 +23,7 @@ export default {
     field: 'data_project_id',
   },
 
-  processorId: {
+  ProcessorInstanceId: {
     type: DataTypes.UUID,
     allowNull: true,
     field: 'experiment_processing_id',

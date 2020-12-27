@@ -1,6 +1,5 @@
 import Project from '../models/Project';
 import Experiment from '../models/Experiment';
-import Job from '../models/Job';
 
 export default {
   findAll: ({ offset, limit }) => Project.findAndCountAll({
@@ -23,14 +22,6 @@ export default {
       as: 'Experiments'
     }});
 
-    const jobs = await Job.findAll({ where: {
-      // projectId: project.gitlabId,
-      ref: project.Experiments && project.Experiments[0].name,
-    } });
-
-    return {
-      project,
-      jobs,
-    };
+    return project;
   },
 };

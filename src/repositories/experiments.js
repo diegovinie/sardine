@@ -1,5 +1,5 @@
 import Experiment from '../models/Experiment';
-import Job from '../models/Job';
+import GlJob from '../models/GlJob';
 
 export default {
   findAllFromProject: async ({ offset, limit }) => {
@@ -14,7 +14,7 @@ export default {
   findOne: async (id) => {
     const experiment = await Experiment.findByPk(id);
 
-    experiment.jobs = await Job.findAll({
+    experiment.jobs = await GlJob.findAll({
       where: {
         ref: experiment.name,
       },

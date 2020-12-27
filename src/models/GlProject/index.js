@@ -1,6 +1,5 @@
 import attributes from './attributes';
 import Project from '../Project';
-import Job from '../Job';
 import { gitlab as sequelize } from '../../connection';
 
 const options = {

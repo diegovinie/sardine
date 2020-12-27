@@ -35,9 +35,9 @@ export default {
 
   jobs: {
     type: DataTypes.VIRTUAL,
-    set(jobs) {
-      this.setDataValue('jobs', jobs);
-    }
+    // set(jobs) {
+    //   this.setDataValue('jobs', jobs);
+    // }
   }
 };
 

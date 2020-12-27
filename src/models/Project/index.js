@@ -1,7 +1,6 @@
 import attributes from './attributes';
 import Experiment from '../Experiment';
 import GlProject from '../GlProject';
-import Job from '../Job';
 import sequelize from '../../connection';
 
 const options = {

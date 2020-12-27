@@ -5,14 +5,14 @@ import { gitlab } from '../../connection';
 const options = {
   sequelize: gitlab, // We need to pass the connection instance
   timestamps: false,
-  modelName: 'Job', // We need to choose the model name,
+  modelName: 'GlJob', // We need to choose the model name,
   tableName: 'ci_pipelines'
 };
 
-const Job = gitlab.define('Job', attributes, options);
+const GlJob = gitlab.define('GlJob', attributes, options);
 
 // Experiment.hasOne(ProcessorInstance);
 
 // ProcessorInstance.belongsTo(Experiment);
 
-export default Job;
+export default GlJob;

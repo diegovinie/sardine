@@ -1,12 +1,7 @@
 import { DataTypes } from 'sequelize';
 
 export default {
-  id: {
-    type: DataTypes.UUID,
-    primaryKey: true,
-  },
-
-  name: {
+  ref: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -16,29 +11,10 @@ export default {
     field: 'status',
   },
 
-  number: {
+  projectId: {
     type: DataTypes.INTEGER,
-    allowNull: true,
-    field: 'number',
+    field: 'project_id',
   },
-
-  dataProjectId: {
-    type: DataTypes.STRING,
-    field: 'data_project_id',
-  },
-
-  ProcessorInstanceId: {
-    type: DataTypes.UUID,
-    allowNull: true,
-    field: 'experiment_processing_id',
-  },
-
-  jobs: {
-    type: DataTypes.VIRTUAL,
-    set(jobs) {
-      this.setDataValue('jobs', jobs);
-    }
-  }
 };
 
 // id

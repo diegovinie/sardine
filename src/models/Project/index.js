@@ -1,5 +1,7 @@
 import attributes from './attributes';
 import Experiment from '../Experiment';
+import GlProject from '../GlProject';
+import Job from '../Job';
 import sequelize from '../../connection';
 
 const options = {
@@ -18,5 +20,10 @@ Project.hasMany(Experiment, {
 Experiment.belongsTo(Project, {
   foreignKey: 'dataProjectId'
 });
+
+// Job.belongsTo(Project, {
+//   foreignKey: 'projectId'
+// });
+
 
 export default Project;

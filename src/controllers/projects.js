@@ -1,4 +1,5 @@
 import repo from '../repositories/projects';
+import repoExp from '../repositories/experiments';
 
 const paginate = (req, { count, rows }) => {
   const {
@@ -46,6 +47,16 @@ export default {
     } = req.params;
 
     const project = await repo.findOne(id);
+
+    return res.json(project);
+  },
+
+  getExperiment: async (req, res) => {
+    const {
+      eid,
+    } = req.params;
+
+    const project = await repoExp.findOne(eid);
 
     return res.json(project);
   },

@@ -16,4 +16,9 @@ export default {
     allowNull: true,
     field: 'stars_count',
   },
+
+  gitlabId: {
+    type: DataTypes.INTEGER,
+    field: 'gitlab_id',
+  },
 };

@@ -1,17 +1,25 @@
-import Project from '../models/Project';
+import Experiment from '../models/Experiment';
+import Job from '../models/Job';
 
 export default {
-  findAll: ({ offset, limit }) => Project.findAndCountAll({
-    limit,
-    offset,
-  }),
+  findAllFromProject: async ({ offset, limit }) => {
+    const exps = await Experiment.findAndCountAll({
+      limit,
+      offset,
+    });
 
-  findPopular: ({ offset, limit }) => Project.findAndCountAll({
-    attributes: ['name', 'stars'],
-    limit,
-    offset,
-    order: [
-      ['stars', 'DESC']
-    ],
-  }),
+    return exps;
+  },
+
+  findOne: async (id) => {
+    const experiment = await Experiment.findByPk(id);
+
+    experiment.jobs = await Job.findAll({
+      where: {
+        ref: experiment.name,
+      },
+    });
+
+    return experiment;
+  }
 };

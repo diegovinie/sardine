@@ -21,4 +21,16 @@ export default {
     type: DataTypes.INTEGER,
     field: 'gitlab_id',
   },
+
+  gitlabProject: {
+    type: DataTypes.VIRTUAL,
+    set(gitlabProject) {
+      this.setDataValue('gitlabProject', gitlabProject);
+    },
+    get() {
+      const p = this.getDataValue('gitlabProject');
+
+      return p && p.toJSON();
+    }
+  },
 };

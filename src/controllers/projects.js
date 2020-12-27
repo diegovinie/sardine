@@ -10,7 +10,7 @@ const paginate = (req, { count, rows }) => {
   } = req;
 
   return !page ? content : {
-    content: rows,
+    content: rows.map((r) => r.dataValues),
     pagination: {
       page: parseInt(page, 10),
       per_page: parseInt(per_page, 10),

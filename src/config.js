@@ -8,5 +8,6 @@ export default {
   dbHost: process.env.DB_HOST,
   dbPort: process.env.DB_PORT,
   dbName: process.env.DB_NAME,
+  dbGName: process.env.DB_G_NAME,
   port: process.env.PORT,
 };

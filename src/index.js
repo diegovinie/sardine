@@ -4,6 +4,7 @@ import bootstrap from './bootstrap';
 import Project from './models/Project';
 import projects from './controllers/projects';
 import config from './config';
+import sequelize, { gitlab } from './connection';
 
 const port = config.port;
 
@@ -14,6 +15,18 @@ const app = express();
 
 // webpack init
 bootstrap(app);
+
+async function test () {
+  console.log('before');
+  const a = await sequelize.query('SELECT username from account LIMIT 2');
+  console.log(a);
+  const g = await gitlab.query('SELECT email from users LIMIT 2');
+  console.log(g);
+  console.log('after');
+}
+
+console.log('enterint');
+test();
 
 app.use(express.static('./public'));
 

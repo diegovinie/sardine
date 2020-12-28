@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start:client": "webpack-dev-server --config webpack.config.js",
-    "start": "babel-watch ./src/index.js"
+    "start": "babel-watch ./src/index.js",
+    "prod": "babel-node ./src/index.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@babel/node": "^7.12.10",
     "@babel/preset-env": "^7.9.6",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",

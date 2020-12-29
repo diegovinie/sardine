@@ -6,6 +6,6 @@ set -e # exit on immediately on every error
 set -u # error on usage of undefined variables
 ########################################
 
-docker build --tag sardine .
+docker build --tag sardine -f ../Dockerfile
 
 ls -lisa .
